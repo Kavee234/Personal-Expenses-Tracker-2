@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+
+    <nav id="app-navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-mark"><i class="fa-solid fa-wallet" aria-hidden="true"></i></span>
+                <span>Personal Expense Tracker</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <section id="auth-section" class="auth-section" aria-labelledby="auth-heading">
+            <div class="auth-card">
+                <aside class="auth-showcase">
+                    <span class="showcase-orbit showcase-orbit-one"></span>
+                    <span class="showcase-orbit showcase-orbit-two"></span>
+                    <div class="showcase-content">
+                        <span class="showcase-icon"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></span>
+                        <p class="showcase-eyebrow">A clearer view of your money</p>
+                        <h2>Make every rupee count.</h2>
+                        <p class="showcase-description">Bring your everyday spending and saving into one simple,
+                            personal space.</p>
+                        <div class="showcase-benefit">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <span>Know where your money goes</span>
+                        </div>
+                        <div class="showcase-benefit">
+                            <i class="fa-solid fa-check" aria-hidden="true"></i>
+                            <span>Keep your finances organized</span>
+                        </div>
+                    </div>
+                    <p class="showcase-footer">Small steps. Stronger habits.</p>
+                </aside>
+
+                <div class="auth-panel">
+                    <div class="auth-panel-top">
+                        <span class="auth-eyebrow">YOUR PERSONAL FINANCE SPACE</span>
+                        <span class="secure-label"><i class="fa-solid fa-lock" aria-hidden="true"></i> Private by
+                            design</span>
+                    </div>
+                    <h1 id="auth-heading">Welcome back</h1>
+                    <p id="auth-description" class="auth-description">Sign in to pick up where you left off.</p>
+
+                    <div class="auth-tabs" role="tablist" aria-label="Account options">
+                        <button type="button" id="show-login-btn" class="auth-tab active" role="tab"
+                            aria-selected="true">Sign in</button>
+                        <button type="button" id="show-signup-btn" class="auth-tab" role="tab"
+                            aria-selected="false">Sign up</button>
+                    </div>
+
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="login-email">Email address</label>
+                            <input type="email" id="login-email" placeholder="you@example.com" autocomplete="email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <div class="password-input-wrap">
+                                <input type="password" id="login-password" placeholder="Enter your password"
+                                    autocomplete="current-password" required>
+                                <button type="button" class="password-toggle" aria-label="Show password"
+                                    aria-pressed="false">Show</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary auth-submit">
+                            <span class="button-label">Sign in</span>
+                            <i class="fa-solid fa-arrow-right button-arrow" aria-hidden="true"></i>
+                            <span class="button-spinner" aria-hidden="true" hidden></span>
+                        </button>
+                    </form>
+
+                    <form id="signup-form" class="auth-form" hidden>
+                        <div class="form-group">
+                            <label for="signup-name">Full name</label>
+                            <input type="text" id="signup-name" placeholder="Your name" maxlength="80"
+                                autocomplete="name" required>
+                        </div>
+                        <div class="form-row signup-profile-row">
+                            <div class="form-group">
+                                <label for="signup-age">Age</label>
+                                <input type="number" id="signup-age" placeholder="Your age" min="1" max="120" step="1"
+                                    inputmode="numeric" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-occupation">Occupation <span
+                                        class="optional-label">Optional</span></label>
+                                <input type="text" id="signup-occupation" placeholder="e.g. Student" maxlength="80"
+                                    autocomplete="organization-title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email address</label>
+                            <input type="email" id="signup-email" placeholder="you@example.com" autocomplete="email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="password-input-wrap">
+                                <input type="password" id="signup-password" placeholder="Create a password"
+                                    autocomplete="new-password" minlength="8" required>
+                                <button type="button" class="password-toggle" aria-label="Show password"
+                                    aria-pressed="false">Show</button>
+                            </div>
+                            <small class="field-help">Use at least 8 characters.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm password</label>
+                            <div class="password-input-wrap">
+                                <input type="password" id="confirm-password" placeholder="Enter your password again"
+                                    autocomplete="new-password" minlength="8" required>
+                                <button type="button" class="password-toggle" aria-label="Show password"
+                                    aria-pressed="false">Show</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary auth-submit">
+                            <span class="button-label">Create account</span>
+                            <i class="fa-solid fa-arrow-right button-arrow" aria-hidden="true"></i>
+                            <span class="button-spinner" aria-hidden="true" hidden></span>
+                        </button>
+                    </form>
+
+                    <div id="auth-loading-indicator" class="auth-loading-indicator" role="status" aria-live="polite"
+                        hidden>
+                        <span class="loading-spinner" aria-hidden="true"></span>
+                        <span id="auth-loading-text">Working on it...</span>
+                        <span class="loading-track" aria-hidden="true"><span></span></span>
+                    </div>
+                    <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+                    <p class="local-account-note"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Accounts
+                        and transactions are saved only in this browser.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="dashboard-content" class="dashboard-content" hidden>
+            <aside class="dashboard-sidebar" aria-label="Main navigation">
+                <a class="sidebar-brand" href="#overview">
+                    <span class="sidebar-brand-mark"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></span>
+                    <span>pennywise<span class="brand-period">.</span></span>
+                </a>
+                <span class="sidebar-label">WORKSPACE</span>
+                <nav class="sidebar-nav">
+                    <a class="sidebar-link active" href="#overview">
+                        <i class="fa-solid fa-border-all" aria-hidden="true"></i><span>Overview</span>
+                    </a>
+                    <a class="sidebar-link" href="#transactions">
+                        <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i><span>Transactions</span>
+                    </a>
+                    <a class="sidebar-link" href="#new-transaction">
+                        <i class="fa-solid fa-circle-plus" aria-hidden="true"></i><span>Add entry</span>
+                    </a>
+                </nav>
+                <div class="sidebar-note">
+                    <span class="sidebar-note-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span>
+                    <strong>Little by little</strong>
+                    <p>Small money habits add up to big progress.</p>
+                </div>
+                <div class="sidebar-foot">
+                    <span class="sidebar-foot-dot"></span>
+                    <span>Your data stays on this device</span>
+                </div>
+            </aside>
+
+            <div class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <div class="topbar-page-label">
+                        <span class="topbar-kicker">PERSONAL FINANCE</span>
+                        <span class="topbar-divider">/</span>
+                        <span id="topbar-current-section">Overview</span>
+                    </div>
+                    <div id="account-actions" class="account-actions" hidden>
+                        <span id="account-display" class="account-display"></span>
+                        <div class="profile-menu-wrapper">
+                            <button type="button" id="profile-menu-toggle" class="profile-menu-toggle"
+                                aria-label="Open profile menu" aria-expanded="false" aria-controls="profile-menu">
+                                <span id="profile-avatar" class="profile-avatar"><i class="fa-solid fa-user"
+                                        aria-hidden="true"></i></span>
+                                <i class="fa-solid fa-chevron-down profile-menu-chevron" aria-hidden="true"></i>
+                            </button>
+                            <section id="profile-menu" class="profile-menu" aria-label="Account and personal details"
+                                hidden>
+                                <div class="profile-menu-heading">
+                                    <span class="section-eyebrow">YOUR ACCOUNT</span>
+                                    <h2>Personal details</h2>
+                                    <p id="account-email" class="profile-menu-email"></p>
+                                </div>
+                                <form id="profile-form">
+                                    <div class="profile-fields">
+                                        <div class="form-group">
+                                            <label for="profile-name">Full name</label>
+                                            <input type="text" id="profile-name" maxlength="80" autocomplete="name"
+                                                required disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-age">Age</label>
+                                            <input type="number" id="profile-age" min="1" max="120" step="1"
+                                                inputmode="numeric" required disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-occupation">Occupation <span
+                                                    class="optional-label">Optional</span></label>
+                                            <input type="text" id="profile-occupation" maxlength="80"
+                                                autocomplete="organization-title" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="profile-menu-actions">
+                                        <button type="button" id="edit-profile-btn" class="btn btn-secondary">
+                                            <i class="fa-solid fa-pen" aria-hidden="true"></i> Edit details
+                                        </button>
+                                        <div id="profile-actions" class="profile-actions" hidden>
+                                            <button type="submit" class="btn btn-primary">Save details</button>
+                                            <button type="button" id="cancel-profile-btn"
+                                                class="btn btn-secondary">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <p id="profile-message" class="profile-message" role="status" aria-live="polite">
+                                    </p>
+                                </form>
+                                <div class="profile-menu-footer">
+                                    <button type="button" id="open-delete-account-btn" class="profile-menu-delete">
+                                        <i class="fa-solid fa-trash-can" aria-hidden="true"></i> Delete account
+                                    </button>
+                                    <button type="button" id="sign-out-btn" class="profile-menu-signout">
+                                        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sign out
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="dashboard-workspace" id="overview">
+                    <header class="dashboard-header">
+                        <div class="dashboard-welcome">
+                            <span class="dashboard-eyebrow"><span class="status-dot"></span> YOUR MONEY, AT A
+                                GLANCE</span>
+                            <h1>Welcome back, <span id="dashboard-greeting-name">there</span></h1>
+                            <p>A little clarity goes a long way. Here's your financial snapshot.</p>
+                        </div>
+                        <div class="dashboard-date">
+                            <span class="date-icon"><i class="fa-regular fa-calendar" aria-hidden="true"></i></span>
+                            <span id="dashboard-current-date"></span>
+                        </div>
+                        <span class="dashboard-orbit dashboard-orbit-one"></span>
+                        <span class="dashboard-orbit dashboard-orbit-two"></span>
+                    </header>
+
+                    <section class="summary-cards" aria-label="Financial summary">
+                        <article class="card balance-card">
+                            <div class="summary-card-top">
+                                <span class="summary-icon"><i class="fa-solid fa-wallet" aria-hidden="true"></i></span>
+                                <span class="summary-kicker">TOTAL BALANCE</span>
+                            </div>
+                            <p id="current-balance" class="summary-amount">LKR 0.00</p>
+                            <span class="summary-footnote">Income minus expenses</span>
+                        </article>
+                        <article class="card income-card">
+                            <div class="summary-card-top">
+                                <span class="summary-icon"><i class="fa-solid fa-arrow-down"
+                                        aria-hidden="true"></i></span>
+                                <span class="summary-kicker">TOTAL INCOME</span>
+                            </div>
+                            <p id="total-income" class="summary-amount">LKR 0.00</p>
+                            <span class="summary-footnote">Money coming in</span>
+                        </article>
+                        <article class="card expense-card">
+                            <div class="summary-card-top">
+                                <span class="summary-icon"><i class="fa-solid fa-arrow-up"
+                                        aria-hidden="true"></i></span>
+                                <span class="summary-kicker">TOTAL EXPENSES</span>
+                            </div>
+                            <p id="total-expenses" class="summary-amount">LKR 0.00</p>
+                            <span class="summary-footnote">Money going out</span>
+                        </article>
+                    </section>
+
+                    <div class="workspace-grid">
+                        <section class="form-section" id="new-transaction" aria-labelledby="transaction-form-heading">
+                            <div class="section-heading">
+                                <span class="section-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+                                <div>
+                                    <span class="section-eyebrow">KEEP IT UP TO DATE</span>
+                                    <h2 id="transaction-form-heading">New transaction</h2>
+                                </div>
+                            </div>
+                            <form id="transaction-form">
+                                <div class="form-group">
+                                    <label for="type">Transaction type</label>
+                                    <select id="type" required>
+                                        <option value="Income">Income</option>
+                                        <option value="Expense">Expense</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">What was it for?</label>
+                                    <input type="text" id="description" placeholder="e.g. Monthly salary" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount">Amount <span class="input-unit">LKR</span></label>
+                                    <input type="number" id="amount" placeholder="0.00" min="0.01" step="0.01" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <select id="category" required>
+                                        <option value="" disabled selected>Select a category</option>
+                                        <option value="Allowance">Allowance</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Transport">Transport</option>
+                                        <option value="Salary">Salary</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Utilities">Utilities</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Date</label>
+                                    <input type="date" id="date" required>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"
+                                            aria-hidden="true"></i> Add transaction</button>
+                                    <button type="button" id="clear-btn" class="btn btn-secondary">Clear</button>
+                                </div>
+                            </form>
+                        </section>
+
+                        <section class="history-section" id="transactions"
+                            aria-labelledby="transaction-history-heading">
+                            <div class="history-header">
+                                <div class="section-heading">
+                                    <span class="section-icon section-icon-history"><i class="fa-solid fa-list"
+                                            aria-hidden="true"></i></span>
+                                    <div>
+                                        <span class="section-eyebrow">YOUR ACTIVITY</span>
+                                        <h2 id="transaction-history-heading">Transactions</h2>
+                                    </div>
+                                </div>
+                                <div class="history-header-actions">
+                                    <span id="transactions-count" class="transactions-count">0 entries</span>
+                                    <button type="button" id="reset-btn" class="btn btn-reset"><i
+                                            class="fa-regular fa-trash-can" aria-hidden="true"></i> Clear all</button>
+                                </div>
+                            </div>
+
+                            <div class="filters-row">
+                                <div class="filter-group">
+                                    <label for="filter-type">Type</label>
+                                    <select id="filter-type">
+                                        <option value="All">All transactions</option>
+                                        <option value="Income">Income only</option>
+                                        <option value="Expense">Expenses only</option>
+                                    </select>
+                                </div>
+                                <div class="search-group">
+                                    <label for="search-input">Find a transaction</label>
+                                    <div class="search-input-wrap">
+                                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                                        <input type="text" id="search-input"
+                                            placeholder="Search description or category">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="transaction-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Description</th>
+                                            <th>Type</th>
+                                            <th>Category</th>
+                                            <th>Amount</th>
+                                            <th><span class="visually-hidden">Action</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transaction-list"></tbody>
+                                </table>
+                                <div id="no-transactions" class="no-transactions">
+                                    <span class="empty-state-icon"><i class="fa-regular fa-folder-open"
+                                            aria-hidden="true"></i></span>
+                                    <strong>No transactions yet</strong>
+                                    <span>Add your first transaction to see it here.</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="delete-account-dialog" class="delete-account-dialog" aria-labelledby="delete-dialog-heading">
+        <form id="delete-account-form">
+            <span class="delete-dialog-icon"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i></span>
+            <h2 id="delete-dialog-heading">Delete your account?</h2>
+            <p class="delete-dialog-warning">This permanently deletes <strong id="delete-account-email"></strong> and
+                all transactions saved for this account in this browser. This cannot be undone.</p>
+            <div class="form-group">
+                <label for="delete-account-password">Confirm your password</label>
+                <div class="password-input-wrap">
+                    <input type="password" id="delete-account-password" autocomplete="current-password" required>
+                    <button type="button" class="password-toggle" aria-label="Show password"
+                        aria-pressed="false">Show</button>
+                </div>
+            </div>
+            <label class="delete-confirm-label">
+                <input type="checkbox" id="delete-account-confirm" required>
+                <span>I understand that my account and transaction history will be permanently deleted.</span>
+            </label>
+            <p id="delete-account-message" class="delete-account-message" role="status" aria-live="polite"></p>
+            <div class="delete-dialog-actions">
+                <button type="button" id="cancel-delete-account-btn" class="btn btn-secondary">Keep my account</button>
+                <button type="submit" class="btn btn-danger">Delete permanently</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div id="app-toast" class="app-toast" role="status" aria-live="polite" aria-hidden="true">
+        <span class="toast-icon"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+        <span id="app-toast-message"></span>
+    </div>
+
+    <footer class="footer">
+        <p>Personal Expense Tracker &copy; 2026</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
