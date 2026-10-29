@@ -3397,3 +3397,106 @@ tbody tr:hover {
 .dashboard-workspace.transactions-only .workspace-grid {
     grid-template-columns: minmax(0, 1fr);
 }
+
+/* Keep the page within the viewport; the transaction table scrolls independently. */
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+.dashboard-content,
+.dashboard-main,
+.dashboard-workspace,
+.workspace-grid,
+.summary-cards,
+.auth-section,
+.auth-card,
+.auth-panel {
+    min-width: 0;
+}
+
+.dashboard-workspace {
+    width: 100%;
+}
+
+.table-responsive {
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 700px) {
+    .dashboard-sidebar {
+        position: static;
+    }
+
+    .dashboard-topbar {
+        gap: 0.5rem;
+    }
+
+    .topbar-page-label,
+    .dashboard-topbar .account-actions {
+        min-width: 0;
+    }
+
+    .dashboard-topbar .account-display {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav-container {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .dashboard-workspace {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .dashboard-sidebar {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .sidebar-nav {
+        min-width: 0;
+        gap: 0.2rem;
+    }
+
+    .sidebar-link {
+        min-width: 0;
+        gap: 0.25rem;
+        padding-right: 0.3rem;
+        padding-left: 0.3rem;
+        white-space: normal;
+    }
+
+    .sidebar-link span {
+        overflow-wrap: anywhere;
+        text-align: center;
+    }
+
+    .dashboard-topbar {
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+
+    .auth-panel-top {
+        flex-wrap: wrap;
+        row-gap: 0.45rem;
+    }
+
+    .auth-eyebrow {
+        overflow-wrap: anywhere;
+    }
+
+    .history-section,
+    .form-section {
+        padding: 0.9rem;
+    }
+}
